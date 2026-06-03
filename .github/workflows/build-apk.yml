@@ -1,0 +1,38 @@
+name: Build Debug APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Install Android workload
+        run: dotnet workload install android
+
+      - name: Build APK
+        run: dotnet build Seeker.sln -c Debug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: seeker-debug-apk
+          path: '**/*.apk'
+          if-no-files-found: error
