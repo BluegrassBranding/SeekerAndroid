@@ -2321,7 +2321,7 @@ namespace Seeker
                     {
                         SeekerApplication.Toaster.ShowToast(SeekerApplication.GetString(Resource.String.no_search_results), ToastLength.Short);
                     }
-#if DEBUG && !MOCK
+#if false
                     if (!t.IsCanceled && t.IsCompletedSuccessfully && t.Result.Item2 != null && t.Result.Item2.Count > 0)
                     {
                         try
