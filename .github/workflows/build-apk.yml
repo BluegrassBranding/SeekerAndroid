@@ -27,8 +27,11 @@ jobs:
       - name: Install Android workload
         run: dotnet workload install android
 
+      - name: Restore
+        run: dotnet restore Seeker/Seeker.csproj
+
       - name: Build APK
-        run: dotnet build Seeker/Seeker.csproj -c Release -f net8.0-android
+        run: dotnet build Seeker/Seeker.csproj -c Release --no-restore
   
       - name: Upload APK
         uses: actions/upload-artifact@v4
