@@ -8,8 +8,8 @@
     <AndroidManagedSymbols>true</AndroidManagedSymbols>
     <TargetFramework>net9.0-android</TargetFramework>
     <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
-    <AssemblyTitle>AndriodApp1</AssemblyTitle>
-    <Product>AndriodApp1</Product>
+    <AssemblyTitle>AndriodApp1Debug</AssemblyTitle>
+    <Product>AndriodApp1Debug</Product>
     <Copyright>Copyright ©  2018</Copyright>
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <FileVersion>1.1.0.0</FileVersion>
