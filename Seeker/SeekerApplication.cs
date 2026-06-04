@@ -244,7 +244,7 @@ namespace Seeker
 
             //need search response and enqueue download action...
             //SeekerState.SoulseekClient = new SoulseekClient(new SoulseekClientOptions(messageTimeout: 30000, enableListener: false, autoAcknowledgePrivateMessages: false, acceptPrivateRoomInvitations:PreferencesState.AllowPrivateRoomInvitations)); //Enable Listener is False.  Default is True.
-            #if DEBUG
+            #if false
                 var _capRoot = Application.Context.GetExternalFilesDir(null)?.AbsolutePath;
                 if (_capRoot != null)
                 {
