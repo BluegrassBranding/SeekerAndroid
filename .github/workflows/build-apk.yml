@@ -31,7 +31,7 @@ jobs:
         run: dotnet restore Seeker/Seeker.csproj
 
       - name: Build APK
-        run: dotnet build Seeker/Seeker.csproj -c Release --no-restore
+        run: dotnet build Seeker/Seeker.csproj -c Debug --no-restore
   
       - name: Upload APK
         uses: actions/upload-artifact@v4
