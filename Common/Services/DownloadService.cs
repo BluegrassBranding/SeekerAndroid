@@ -74,17 +74,17 @@ namespace Seeker.Services
 
             if (allExist)
             {
-                toaster.ShowToastShort(StringKey.error_duplicate);
+                // toaster.ShowToastShort(StringKey.error_duplicate);
             }
             else
             {
                 if (queuePaused)
                 {
-                    toaster.ShowToastShort(StringKey.QueuedForDownload);
+                    // toaster.ShowToastShort(StringKey.QueuedForDownload);
                 }
                 else
                 {
-                    toaster.ShowToastShort(StringKey.download_is_starting);
+                    // toaster.ShowToastShort(StringKey.download_is_starting);
                 }
             }
 
@@ -314,7 +314,7 @@ namespace Seeker.Services
                             state = TransferStates.Errored | TransferStates.UserOffline | TransferStates.FallenFromQueue;
                             if (!silent)
                             {
-                                toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.UserXIsOffline), username), "_6_", username);
+                                // toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.UserXIsOffline), username), "_6_", username);
                             }
                         }
                         else if (t.Exception?.InnerException?.Message != null && t.Exception.InnerException.Message.ToLower().Contains(Soulseek.SoulseekClient.FailedToEstablishDirectOrIndirectStringLower))
@@ -326,7 +326,7 @@ namespace Seeker.Services
                             state = TransferStates.Errored | TransferStates.CannotConnect | TransferStates.FallenFromQueue;
                             if (!silent)
                             {
-                                toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.CannotConnectUserX), username), "_7_", username);
+                               //  toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.CannotConnectUserX), username), "_7_", username);
                             }
                         }
                         else if (t.Exception?.InnerException?.Message != null && t.Exception.InnerException is System.TimeoutException)
@@ -334,7 +334,7 @@ namespace Seeker.Services
                             transitionToNextState = false; //they may just not be sending queue position messages.  that is okay, we can still connect to them just fine for download time.
                             if (!silent)
                             {
-                                toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.TimeoutQueueUserX), username), "_8_", username, 6);
+                               // toaster.ShowToastDebounced(string.Format(toaster.GetString(StringKey.TimeoutQueueUserX), username), "_8_", username, 6);
                             }
                         }
                         else if (t.Exception?.InnerException?.Message != null && t.Exception.InnerException.Message.Contains("underlying Tcp connection is closed"))
@@ -343,14 +343,14 @@ namespace Seeker.Services
                             transitionToNextState = false;
                             if (!silent)
                             {
-                                toaster.ShowToastDebounced(string.Format("Failed to get queue position for {0}: Connection was unexpectedly closed.", username), "_9_", username, 6);
+                                // toaster.ShowToastDebounced(string.Format("Failed to get queue position for {0}: Connection was unexpectedly closed.", username), "_9_", username, 6);
                             }
                         }
                         else
                         {
                             if (!silent)
                             {
-                                toaster.ShowToastDebounced($"Error getting queue position from {username}", "_9_", username);
+                               //  toaster.ShowToastDebounced($"Error getting queue position from {username}", "_9_", username);
                             }
                             logger.Firebase("GetDownloadPlaceInQueue" + t.Exception.ToString());
                         }
